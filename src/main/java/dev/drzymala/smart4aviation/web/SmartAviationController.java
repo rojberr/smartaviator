@@ -11,17 +11,16 @@ import java.time.Instant;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("/cargo")
 public class SmartAviationController {
 
     private final CargoUseCase cargoService;
 
-    @GetMapping()
+    @GetMapping("/cargo-weight")
     public Long getWeight(@RequestParam Long flightId, @RequestParam Instant date) {
         return cargoService.getWeight(flightId, date);
     }
 
-    @GetMapping
+    @GetMapping("/cargo-amount")
     public String getFlightsAndBaggageAmount(@RequestParam String iata, @RequestParam Instant date) {
         return cargoService.getFlightsAndBaggageAmount(iata, date);
     }

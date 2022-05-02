@@ -4,7 +4,7 @@ import java.time.Instant;
 
 public interface CargoUseCase {
 
-    public Long getWeight(Long flightId, Instant date);
+    Long getWeight(Long flightId, Instant date);
 
-    public String getFlightsAndBaggageAmount(String iata, Instant date);
+    String getFlightsAndBaggageAmount(String iata, Instant date);
 }
