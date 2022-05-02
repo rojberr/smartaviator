@@ -5,6 +5,7 @@ services:
     container_name: aviation_postgres_container
     image: postgres
     environment:
+      POSTGRES_DB: aviation_postgres_container
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mypass}
       PGDATA: /data/postgres
