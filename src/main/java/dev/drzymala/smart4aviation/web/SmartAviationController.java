@@ -1,13 +1,15 @@
 package dev.drzymala.smart4aviation.web;
 
 import dev.drzymala.smart4aviation.application.port.CargoUseCase;
+import dev.drzymala.smart4aviation.domain.Flight;
+import dev.drzymala.smart4aviation.domain.Iata;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.Instant;
+import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
@@ -16,12 +18,12 @@ public class SmartAviationController {
     private final CargoUseCase cargoService;
 
     @GetMapping("/cargo-weight")
-    public Long getWeight(@RequestParam Long flightId, @RequestParam Instant date) {
+    public Optional<Flight> getWeight(@RequestParam Long flightId, @RequestParam Instant date) {
         return cargoService.getWeight(flightId, date);
     }
 
     @GetMapping("/cargo-amount")
-    public String getFlightsAndBaggageAmount(@RequestParam String iata, @RequestParam Instant date) {
+    public Optional<Flight> getFlightsAndBaggageAmount(@RequestParam Iata iata, @RequestParam Instant date) {
         return cargoService.getFlightsAndBaggageAmount(iata, date);
     }
 }
