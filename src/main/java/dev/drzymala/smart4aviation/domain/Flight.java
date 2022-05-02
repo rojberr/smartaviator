@@ -16,7 +16,10 @@ public class Flight {
     @Id
     @GeneratedValue
     private Long id;
-    private Instant date;
+    private Iata iata;
+    private Long flightId;
     private Long cargoWeight;
     private Long baggageWeight;
+    private Instant arrivalDate;
+    private Instant departureDate;
 }
