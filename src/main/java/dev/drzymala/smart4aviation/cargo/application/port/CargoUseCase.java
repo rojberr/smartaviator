@@ -1,7 +1,7 @@
-package dev.drzymala.smart4aviation.application.port;
+package dev.drzymala.smart4aviation.cargo.application.port;
 
-import dev.drzymala.smart4aviation.domain.Flight;
-import dev.drzymala.smart4aviation.domain.Iata;
+import dev.drzymala.smart4aviation.cargo.domain.Flight;
+import dev.drzymala.smart4aviation.cargo.domain.Iata;
 
 import java.time.Instant;
 import java.util.Optional;

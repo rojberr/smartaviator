@@ -1,4 +1,4 @@
-package dev.drzymala.smart4aviation.domain;
+package dev.drzymala.smart4aviation.cargo.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

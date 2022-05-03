@@ -1,6 +1,7 @@
 package dev.drzymala.smart4aviation.web;
 
-import dev.drzymala.smart4aviation.application.port.CargoUseCase;
+import dev.drzymala.smart4aviation.cargo.application.port.CargoUseCase;
+import dev.drzymala.smart4aviation.cargo.web.SmartAviationController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;

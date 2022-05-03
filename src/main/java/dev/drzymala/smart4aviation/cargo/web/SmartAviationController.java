@@ -1,8 +1,8 @@
-package dev.drzymala.smart4aviation.web;
+package dev.drzymala.smart4aviation.cargo.web;
 
-import dev.drzymala.smart4aviation.application.port.CargoUseCase;
-import dev.drzymala.smart4aviation.domain.Flight;
-import dev.drzymala.smart4aviation.domain.Iata;
+import dev.drzymala.smart4aviation.cargo.application.port.CargoUseCase;
+import dev.drzymala.smart4aviation.cargo.domain.Flight;
+import dev.drzymala.smart4aviation.cargo.domain.Iata;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,9 +1,9 @@
-package dev.drzymala.smart4aviation.application;
+package dev.drzymala.smart4aviation.cargo.application;
 
-import dev.drzymala.smart4aviation.application.port.CargoUseCase;
-import dev.drzymala.smart4aviation.db.FlightJpaRepository;
-import dev.drzymala.smart4aviation.domain.Flight;
-import dev.drzymala.smart4aviation.domain.Iata;
+import dev.drzymala.smart4aviation.cargo.application.port.CargoUseCase;
+import dev.drzymala.smart4aviation.cargo.db.FlightJpaRepository;
+import dev.drzymala.smart4aviation.cargo.domain.Flight;
+import dev.drzymala.smart4aviation.cargo.domain.Iata;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
