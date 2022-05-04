@@ -18,8 +18,12 @@ public class Flight {
 
     @Id
     private Long flightId;
+
     private Long flightNumber;
+
     private String departureAirportIATACode;
+
     private String arrivalAirportIATACode;
+
     private Instant departureDate;
 }

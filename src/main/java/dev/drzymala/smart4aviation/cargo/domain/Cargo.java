@@ -14,7 +14,16 @@ import javax.persistence.*;
 public class Cargo {
 
     @Id
+    @GeneratedValue
+    private Long id;
+
     private Long flightId;
-    private transient Baggage cargo;
-    private transient Baggage baggage;
+
+    @OneToOne
+    @JoinColumn(name = "cargo")
+    private Baggage cargo;
+
+    @OneToOne
+    @JoinColumn(name = "baggage")
+    private Baggage baggage;
 }
