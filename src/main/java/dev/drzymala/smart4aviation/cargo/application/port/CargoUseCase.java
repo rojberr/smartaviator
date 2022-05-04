@@ -1,5 +1,6 @@
 package dev.drzymala.smart4aviation.cargo.application.port;
 
+import dev.drzymala.smart4aviation.cargo.domain.Cargo;
 import dev.drzymala.smart4aviation.cargo.domain.Flight;
 
 import java.time.Instant;
@@ -12,4 +13,6 @@ public interface CargoUseCase {
     Optional<Flight> getFlightsAndBaggageAmount(String iata, Instant date);
 
     Flight addFlight(Flight flight);
+
+    Cargo addCargo(Cargo cargo);
 }
