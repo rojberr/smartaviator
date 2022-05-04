@@ -23,7 +23,7 @@ public class CargoInitializerService implements CargoInitializerUseCase {
     @Override
     public void initialize() {
         initFlightTestData();
-//        initCargoTestData();
+        initCargoTestData();
     }
 
     @SneakyThrows

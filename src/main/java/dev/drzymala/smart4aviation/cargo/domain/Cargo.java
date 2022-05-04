@@ -5,6 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
+
+import static javax.persistence.CascadeType.ALL;
 
 
 @Data
@@ -14,16 +17,16 @@ import javax.persistence.*;
 public class Cargo {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
     private Long id;
 
     private Long flightId;
 
-    @OneToOne
+    @OneToMany(cascade = ALL)
     @JoinColumn(name = "cargo")
-    private Baggage cargo;
+    private List<Baggage> cargo;
 
-    @OneToOne
+    @OneToMany(cascade = ALL)
     @JoinColumn(name = "baggage")
-    private Baggage baggage;
+    private List<Baggage> baggage;
 }
