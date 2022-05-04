@@ -4,15 +4,14 @@ import dev.drzymala.smart4aviation.cargo.application.port.CargoInitializerUseCas
 import dev.drzymala.smart4aviation.cargo.application.port.CargoUseCase;
 import dev.drzymala.smart4aviation.cargo.domain.Flight;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
 import java.util.Optional;
 
-@Controller
+@RestController
 @AllArgsConstructor
 public class SmartAviationController {
 
@@ -30,5 +29,6 @@ public class SmartAviationController {
     }
 
     @PostMapping("/init")
+    @ResponseStatus(HttpStatus.CREATED)
     public void initialize() { initializer.initialize(); }
 }
