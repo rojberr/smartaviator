@@ -3,7 +3,6 @@ package dev.drzymala.smart4aviation.cargo.application;
 import dev.drzymala.smart4aviation.cargo.application.port.CargoUseCase;
 import dev.drzymala.smart4aviation.cargo.db.FlightJpaRepository;
 import dev.drzymala.smart4aviation.cargo.domain.Flight;
-import dev.drzymala.smart4aviation.cargo.domain.Iata;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +13,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class CargoService implements CargoUseCase {
 
-    FlightJpaRepository repository;
+    private final FlightJpaRepository repository;
 
     @Override
     public Optional<Flight> getWeight(Long flightId, Instant date) {
@@ -22,7 +21,12 @@ public class CargoService implements CargoUseCase {
     }
 
     @Override
-    public Optional<Flight> getFlightsAndBaggageAmount(Iata iata, Instant date) {
-        return repository.findByIataAndDepartureDate(iata, date);
+    public Optional<Flight> getFlightsAndBaggageAmount(String iata, Instant date) {
+        return repository.findByDepartureAirportIATACodeAndDepartureDate(iata, date);
+    }
+
+    @Override
+    public Flight addFlight(Flight flight) {
+        return repository.save(flight);
     }
 }
