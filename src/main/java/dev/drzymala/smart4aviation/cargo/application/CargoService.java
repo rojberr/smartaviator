@@ -1,6 +1,7 @@
 package dev.drzymala.smart4aviation.cargo.application;
 
 import dev.drzymala.smart4aviation.cargo.application.port.CargoUseCase;
+import dev.drzymala.smart4aviation.cargo.db.BaggageJpaRepository;
 import dev.drzymala.smart4aviation.cargo.db.CargoJpaRepository;
 import dev.drzymala.smart4aviation.cargo.db.FlightJpaRepository;
 import dev.drzymala.smart4aviation.cargo.domain.Baggage;
@@ -18,6 +19,7 @@ public class CargoService implements CargoUseCase {
 
     private final FlightJpaRepository flightRepository;
     private final CargoJpaRepository cargoRepository;
+    private final BaggageJpaRepository baggageRepository;
 
     @Override
     public Optional<GetWeightResponse> getWeight(Long flightNumber, Instant departureDate) {
@@ -41,15 +43,14 @@ public class CargoService implements CargoUseCase {
     @Override
     public Optional<GetFlightsAndBaggageResponse> getFlightsAndBaggageAmount(String iata, Instant departureDate) {
 
-        // total number pieces of bababge arriving to this airport
-
-        // total number pieces of baggage departing from this airport
         return Optional.of(
                 new GetFlightsAndBaggageResponse(
                         (long) flightRepository.findByDepartureAirportIATACode(iata).size(),
                         (long) flightRepository.findByArrivalAirportIATACode(iata).size(),
-                        0L, 0L));
-//        return flightRepository.findByDepartureAirportIATACodeAndDepartureDate(iata, departureDate);
+                        // TODO: REFACTOR: total number pieces of baggage arriving to this airport
+                        baggageRepository.count(),
+                        // TODO: REFACTOR: total number pieces of baggage departing from this airport
+                        baggageRepository.count()));
     }
 
     @Override
