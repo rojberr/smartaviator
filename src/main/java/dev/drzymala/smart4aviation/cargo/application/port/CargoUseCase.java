@@ -11,7 +11,7 @@ public interface CargoUseCase {
 
     Optional<?> getWeight(Long flightId, Instant departureDate);
 
-    GetFlightsAndBaggageResponse getFlightsAndBaggageAmount(String iata, Instant departureDate);
+    Optional<GetFlightsAndBaggageResponse> getFlightsAndBaggageAmount(String iata, Instant departureDate);
 
     Flight addFlight(Flight flight);
 

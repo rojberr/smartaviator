@@ -21,7 +21,7 @@ public class SmartAviationController {
 
     @GetMapping(params = {"flightNumber", "date"})
     public ResponseEntity<?> getWeight(@RequestParam Long flightNumber,
-                                       @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date) {
+                               @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date) {
         return cargoService
                 .getWeight(flightNumber, date.toInstant(ZoneOffset.UTC))
                 .map(ResponseEntity::ok)
@@ -30,7 +30,7 @@ public class SmartAviationController {
 
     @GetMapping(params = {"iata", "date"})
     public ResponseEntity<?> getFlightsAndBaggageAmount(@RequestParam String iata,
-                                                        @RequestParam LocalDateTime date) {
+                                @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date) {
         return cargoService
                 .getFlightsAndBaggageAmount(iata, date.toInstant(ZoneOffset.UTC))
                 .map(ResponseEntity::ok)

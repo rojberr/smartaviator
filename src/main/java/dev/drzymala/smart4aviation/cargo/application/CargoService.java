@@ -39,9 +39,17 @@ public class CargoService implements CargoUseCase {
     }
 
     @Override
-    public Optional<Flight> getFlightsAndBaggageAmount(String iata, Instant departureDate) {
+    public Optional<GetFlightsAndBaggageResponse> getFlightsAndBaggageAmount(String iata, Instant departureDate) {
 
-        return flightRepository.findByDepartureAirportIATACodeAndDepartureDate(iata, departureDate);
+        // total number pieces of bababge arriving to this airport
+
+        // total number pieces of baggage departing from this airport
+        return Optional.of(
+                new GetFlightsAndBaggageResponse(
+                        (long) flightRepository.findByDepartureAirportIATACode(iata).size(),
+                        (long) flightRepository.findByArrivalAirportIATACode(iata).size(),
+                        0L, 0L));
+//        return flightRepository.findByDepartureAirportIATACodeAndDepartureDate(iata, departureDate);
     }
 
     @Override
