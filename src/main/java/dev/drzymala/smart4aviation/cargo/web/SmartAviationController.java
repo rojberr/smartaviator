@@ -19,7 +19,7 @@ public class SmartAviationController {
 
     private final CargoUseCase cargoService;
 
-    @GetMapping(params = {"flightId", "date"})
+    @GetMapping(params = {"flightNumber", "date"})
     public ResponseEntity<?> getWeight(@RequestParam Long flightNumber,
                                        @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date) {
         return cargoService

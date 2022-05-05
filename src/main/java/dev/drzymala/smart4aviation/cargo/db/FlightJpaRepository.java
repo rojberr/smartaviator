@@ -8,11 +8,7 @@ import java.util.Optional;
 
 public interface FlightJpaRepository extends JpaRepository<Flight, Long> {
 
-    Optional<Flight> findByFlightIdAndDepartureDate(Long flightId, Instant departureDate);
-
-    Optional<Flight> findByFlightId(Long flightId);
-
-    Optional<Flight> findByDepartureDate(Instant departureDate);
+    Optional<Flight> findByFlightNumberAndDepartureDate(Long flightNumber, Instant departureDate);
 
     Optional<Flight> findByDepartureAirportIATACodeAndDepartureDate(String iata, Instant departureDate);
 }
