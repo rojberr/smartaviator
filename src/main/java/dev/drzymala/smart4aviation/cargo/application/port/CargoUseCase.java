@@ -8,11 +8,13 @@ import java.util.Optional;
 
 public interface CargoUseCase {
 
-    Optional<Flight> getWeight(Long flightId, Instant date);
+    Optional<Flight> getWeight(Long flightId, Instant departureDate);
+
+    Optional<Flight> findByDepartureDate(Instant departureDate);
 
     Optional<Flight> findById(Long flightId);
 
-    Optional<Flight> getFlightsAndBaggageAmount(String iata, Instant date);
+    Optional<Flight> getFlightsAndBaggageAmount(String iata, Instant departureDate);
 
     Flight addFlight(Flight flight);
 

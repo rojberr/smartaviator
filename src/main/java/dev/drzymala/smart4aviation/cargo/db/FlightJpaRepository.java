@@ -12,5 +12,7 @@ public interface FlightJpaRepository extends JpaRepository<Flight, Long> {
 
     Optional<Flight> findByFlightId(Long flightId);
 
+    Optional<Flight> findByDepartureDate(Instant departureDate);
+
     Optional<Flight> findByDepartureAirportIATACodeAndDepartureDate(String iata, Instant departureDate);
 }

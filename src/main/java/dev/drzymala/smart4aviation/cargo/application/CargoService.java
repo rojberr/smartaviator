@@ -21,18 +21,23 @@ public class CargoService implements CargoUseCase {
     private final CargoJpaRepository cargoRepository;
 
     @Override
+    public Optional<Flight> findByDepartureDate(Instant departureDate) {
+        return flightRepository.findByDepartureDate(departureDate);
+    }
+
+    @Override
     public Optional<Flight> findById(Long flightId) {
         return flightRepository.findById(flightId);
     }
 
     @Override
-    public Optional<Flight> getWeight(Long flightId, Instant date) {
-        return flightRepository.findByFlightIdAndDepartureDate(flightId, date);
+    public Optional<Flight> getWeight(Long flightId, Instant departureDate) {
+        return flightRepository.findByFlightIdAndDepartureDate(flightId, departureDate);
     }
 
     @Override
-    public Optional<Flight> getFlightsAndBaggageAmount(String iata, Instant date) {
-        return flightRepository.findByDepartureAirportIATACodeAndDepartureDate(iata, date);
+    public Optional<Flight> getFlightsAndBaggageAmount(String iata, Instant departureDate) {
+        return flightRepository.findByDepartureAirportIATACodeAndDepartureDate(iata, departureDate);
     }
 
     @Override
