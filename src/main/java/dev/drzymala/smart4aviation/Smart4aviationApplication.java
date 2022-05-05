@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Smart4aviationApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Smart4aviationApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Smart4aviationApplication.class, args);
+    }
 
 }

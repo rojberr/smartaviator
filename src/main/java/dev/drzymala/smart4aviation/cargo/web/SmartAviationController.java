@@ -2,13 +2,15 @@ package dev.drzymala.smart4aviation.cargo.web;
 
 import dev.drzymala.smart4aviation.cargo.application.port.CargoUseCase;
 import lombok.AllArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 @RestController
 @RequestMapping("/cargo")
@@ -17,21 +19,21 @@ public class SmartAviationController {
 
     private final CargoUseCase cargoService;
 
-    @GetMapping(params = {"flightid", "date"})
-    public ResponseEntity<?> getWeight(@RequestParam Long flightId, @RequestParam Instant date) {
+    @GetMapping(params = {"flightId", "date"})
+    public ResponseEntity<?> getWeight(@RequestParam Long flightId,
+                                       @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date) {
         return cargoService
-                .getWeight(flightId, date)
+                .getWeight(flightId, date.toInstant(ZoneOffset.UTC))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping(params = {"iata", "date"})
-    public ResponseEntity<?> getFlightsAndBaggageAmount(@RequestParam String iata, @RequestParam Instant date) {
+    public ResponseEntity<?> getFlightsAndBaggageAmount(@RequestParam String iata,
+                                                        @RequestParam LocalDateTime date) {
         return cargoService
-                .getFlightsAndBaggageAmount(iata, date)
+                .getFlightsAndBaggageAmount(iata, date.toInstant(ZoneOffset.UTC))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 }
-
-

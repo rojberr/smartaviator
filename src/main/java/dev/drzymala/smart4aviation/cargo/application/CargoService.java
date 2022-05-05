@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Optional;
 
 @Service
@@ -17,6 +19,11 @@ public class CargoService implements CargoUseCase {
 
     private final FlightJpaRepository flightRepository;
     private final CargoJpaRepository cargoRepository;
+
+    @Override
+    public Optional<Flight> findById(Long flightId) {
+        return flightRepository.findById(flightId);
+    }
 
     @Override
     public Optional<Flight> getWeight(Long flightId, Instant date) {
@@ -34,5 +41,7 @@ public class CargoService implements CargoUseCase {
     }
 
     @Override
-    public Cargo addCargo(Cargo cargo) { return cargoRepository.save(cargo); }
+    public Cargo addCargo(Cargo cargo) {
+        return cargoRepository.save(cargo);
+    }
 }

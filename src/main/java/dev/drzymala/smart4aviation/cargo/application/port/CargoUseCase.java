@@ -10,6 +10,8 @@ public interface CargoUseCase {
 
     Optional<Flight> getWeight(Long flightId, Instant date);
 
+    Optional<Flight> findById(Long flightId);
+
     Optional<Flight> getFlightsAndBaggageAmount(String iata, Instant date);
 
     Flight addFlight(Flight flight);
