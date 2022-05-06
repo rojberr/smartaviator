@@ -13,12 +13,15 @@
 4) Populate the database with exemplary data saved in .json files:
 > SEND POST localhost:8080/init
 5) Test the application by sending GET requests to cargo with either:
-> GET localhost:8080/cargo?flightNumber=2741&date=2018-03-31T06:52:28Z  
- ... to get cargo, baggage and total weight of searched flight,  
+> GET localhost:8080/cargo?flightNumber=2741&date=2018-03-31T06:52:28Z 
+
+to get cargo, baggage and total weight of searched flight,  
 
 or:
 > GET localhost:8080/cargo?iata=LUX&date=2741&date=2018-03-31T06:52:28Z
- ... to get ...
+
+
+to get ...
  
  ## Instructions
  
