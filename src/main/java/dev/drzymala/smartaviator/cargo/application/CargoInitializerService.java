@@ -13,7 +13,7 @@ import lombok.SneakyThrows;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
+import java.io.InputStream;
 
 @Service
 @AllArgsConstructor
@@ -33,7 +33,7 @@ public class CargoInitializerService implements CargoInitializerUseCase {
         objectMapper.registerModule(new JavaTimeModule());
         objectMapper.enable(SerializationFeature.WRITE_DATES_WITH_ZONE_ID);
         objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-        File jsonFile = new ClassPathResource("flight-test-data.json").getFile();
+        InputStream jsonFile = new ClassPathResource("flight-test-data.json").getInputStream();
         JsonNode rootNode = objectMapper.readTree(jsonFile);
 
         if (rootNode.isArray()) {
@@ -46,7 +46,7 @@ public class CargoInitializerService implements CargoInitializerUseCase {
 
     @SneakyThrows
     private void initCargoTestData() {
-        File jsonFile = new ClassPathResource("cargo-test-data.json").getFile();
+        InputStream jsonFile = new ClassPathResource("cargo-test-data.json").getInputStream();
         JsonNode rootNode = objectMapper.readTree(jsonFile);
 
         if (rootNode.isArray()) {

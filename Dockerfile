@@ -12,8 +12,8 @@ USER spring:spring
 ARG JAR_FILE=build/libs/smartaviator-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
 
-# copy testfile.json used for database init
-COPY
+# copy testfiles .json used for database init
+COPY src/main/resources /
 
 # expose port
 EXPOSE 8080
