@@ -1,18 +1,28 @@
 version: '3.5'
 
 services:
+
+  smartaviator:
+    build:
+      context: .
+    container_name: smartaviator_app
+    image: openjdk:17-jdk-alpine
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - postgres
+
   postgres:
-    container_name: aviation_postgres_container
-    image: postgres
+    container_name: smartaviator_db
+    image: postgres:14.4
     environment:
       PGTZ: 'UTC'
       TZ: 'UTC'
-      POSTGRES_DB: aviation_postgres_container
+      POSTGRES_DB: smartaviator_db
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mypass}
-      PGDATA: /data/postgres
-    volumes:
-      - postgres:/data/postgres
     ports:
       - "5432:5432"
     networks:
@@ -22,7 +32,3 @@ services:
 networks:
   postgres:
     driver: bridge
-
-volumes:
-  postgres:
-  pgadmin:
