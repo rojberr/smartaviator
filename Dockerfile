@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-alpine
+FROM openjdk:17-jdk-alpine3.14
 
 MAINTAINER rojberr <rojberr@outlook.com>
 
