@@ -1,6 +1,7 @@
 FROM openjdk:17-jdk-alpine3.14
 
-MAINTAINER rojberr <rojberr@outlook.com>
+LABEL maintainer="rojberr"
+LABEL build_date="2022-09-17"
 
 # Add group for spring
 RUN addgroup -S spring && adduser -S spring -G spring
