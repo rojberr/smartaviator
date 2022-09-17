@@ -3,7 +3,7 @@
 ## This is a simple Spring Boot application  
 ### Allowing you to search for flights and luggage in a prefilled test database!  
 
-![Airplane and Jets Flying in the Blue Sky](readme-pic.jpg)
+![Airplane and Jets Flying in the Blue Sky](assets/readme-pic.jpg)
 
 
 ## Usage: 💡
