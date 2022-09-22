@@ -32,7 +32,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     // https://mvnrepository.com/artifact/com.h2database/h2
-    testImplementation 'com.h2database:h2:2.1.210'
+    testImplementation 'com.h2database:h2:2.1.212'
     // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all
     testImplementation 'org.hamcrest:hamcrest-all:1.3'
 }
