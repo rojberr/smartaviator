@@ -35,10 +35,16 @@ GET localhost:8080/cargo?flightNumber=2741&date=2018-03-31T06:52:28Z
 ```bash
 GET localhost:8080/cargo?iata=LUX&date=2018-03-31T06:52:28Z
 ```
+## Prometeus endpoints
 
+This API includes 2 endpoints for Prometheus:
+- `localhost/actuator/metrics` to navigate under metrics,
+- `localhost/actuator/prometeus` with format that Prometheus is expecting and scrapes from.
+(remember to configure the Prometheus accordingly)
+Those endpoints will show f.e. how many request are taken and how long do they last, and if they were successful.
 
- ## Instructions 📋
+## Requirements for this API 📋
  
-You can find the instructions in `PDF` file located in project root folder.
+You can find the requirements in `PDF` file located in project root folder.
 > ./docu.pdf  
   
