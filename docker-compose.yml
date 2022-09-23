@@ -5,22 +5,23 @@ services:
   smartaviator:
     build:
       context: .
-    container_name: smartaviator_app
+    container_name: smartaviator-app
     image: openjdk:17-jdk-alpine
     ports:
       - "8080:8080"
+      - "9000:9000"
     depends_on:
       - postgres
     networks:
       - postgres
 
   postgres:
-    container_name: smartaviator_db
+    container_name: smartaviator-db
     image: postgres:14.4
     environment:
       PGTZ: 'UTC'
       TZ: 'UTC'
-      POSTGRES_DB: smartaviator_db
+      POSTGRES_DB: smartaviator-db
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mypass}
     ports:
@@ -28,6 +29,15 @@ services:
     networks:
       - postgres
     restart: unless-stopped
+
+  prometheus:
+    image: 'prom/prometheus:latest'
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - postgres
 
 networks:
   postgres:

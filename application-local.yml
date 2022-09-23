@@ -1,7 +1,7 @@
 # Postgres database connection details
 spring:
   datasource:
-    url: "jdbc:postgresql://localhost:5432/smartaviator_db"
+    url: "jdbc:postgresql://localhost:5432/smartaviator-db"
     username: "postgres"
     password: "mypass"
   # Creation of database
